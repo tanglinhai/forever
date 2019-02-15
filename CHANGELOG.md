@@ -1,4 +1,20 @@
 
+ 2019-02-14
+=========================
+1、如果设置了FOREVER_ROOT=../xxxx 相对路径，则使用 __dirname+'../../../'+设置的路径,作为根路径, 修改forever.js 52行
+2、修改forever.js 300行
+if(options.root){
+      if(!forever.config.get('root')){
+        forever.config.set('root', options.root)
+      }
+      if(forever.config.get('pidPath')){
+        forever.config.set('pidPath', options.root+forever.config.get('pidPath'))
+      }
+      if(forever.config.get('sockPath')){
+        forever.config.set('sockPath', options.root+forever.config.get('sockPath'))
+      }
+
+
 0.14.2 / Tue, 30 Jun 2015
 =========================
   * [804b5b1](https://github.com/foreverjs/forever/commit/804b5b1) [dist] Version bump. 0.14.2 (`indexzero`)
